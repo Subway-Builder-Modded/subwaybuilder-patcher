@@ -532,17 +532,17 @@ config.places.forEach(async place => {
         roads: \`/data/\${place.code}/roads.geojson\`,
         runwaysTaxiways: \`/data/\${place.code}/runways_taxiways.geojson\`,
     })
-    let tabs = generateTabs(config.places);
-    console.log(tabs);
-    Object.entries(tabs).forEach(([country, codes]) => {
-        window.SubwayBuilderAPI.cities.registerTab({
-          id: country,
-          label: getCountryName(country),
-          emoji: getFlagEmoji(country),
-          cityCodes: codes,
-        });
+})
+    
+let tabs = generateTabs(config.places);
+Object.entries(tabs).forEach(([country, codes]) => {
+    window.SubwayBuilderAPI.cities.registerTab({
+      id: country,
+      label: getCountryName(country),
+      emoji: getFlagEmoji(country),
+      cityCodes: codes,
     });
-})`;
+});`;
 
 const manifest = {
   id: "com.kronifer.maploader",
